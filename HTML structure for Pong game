@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pong Game</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            color: #00d4ff;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px #00d4ff;
+        }
+
+        #gameContainer {
+            position: relative;
+            width: 800px;
+            height: 400px;
+            background-color: #0f3460;
+            border: 3px solid #00d4ff;
+            box-shadow: 0 0 20px #00d4ff;
+        }
+
+        canvas {
+            display: block;
+            background-color: #0f3460;
+        }
+
+        #scoreBoard {
+            color: #00d4ff;
+            font-size: 24px;
+            margin-top: 20px;
+            text-align: center;
+            text-shadow: 0 0 10px #00d4ff;
+        }
+
+        #instructions {
+            color: #00d4ff;
+            font-size: 14px;
+            margin-top: 15px;
+            text-align: center;
+            opacity: 0.8;
+        }
+
+        #gameOver {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.9);
+            color: #00d4ff;
+            padding: 30px;
+            border: 2px solid #00d4ff;
+            border-radius: 10px;
+            text-align: center;
+            display: none;
+            z-index: 1000;
+            min-width: 300px;
+        }
+
+        #gameOver h2 {
+            font-size: 28px;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px #00d4ff;
+        }
+
+        #gameOver p {
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        #gameOver button {
+            background-color: #00d4ff;
+            color: #0f3460;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        #gameOver button:hover {
+            background-color: #00a8cc;
+        }
+    </style>
+</head>
+<body>
+    <h1>🎮 PONG GAME 🎮</h1>
+    <div id="gameContainer">
+        <canvas id="pong" width="800" height="400"></canvas>
+        <div id="gameOver">
+            <h2 id="gameOverTitle">Game Over</h2>
+            <p id="gameOverMessage"></p>
+            <button onclick="resetGame()">Play Again</button>
+        </div>
+    </div>
+    <div id="scoreBoard">
+        <span>Player: *
+
